@@ -1,0 +1,208 @@
+.status-bar-container {
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  border-bottom: 2px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 100;
+}
+
+.status-bar {
+  position: relative;
+  width: 100%;
+  padding: 20px 0 40px 0;
+}
+
+.status-progress-line {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #e0e0e0;
+  z-index: 1;
+}
+
+.status-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #27ae60 0%, #229954 100%);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(39, 174, 96, 0.3);
+  border-radius: 2px;
+}
+
+.status-milestones {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  justify-content: space-between;
+  gap: 0;
+}
+
+.milestone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  z-index: 3;
+}
+
+.milestone-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  border: 3px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 4;
+}
+
+.milestone.completed .milestone-icon {
+  border-color: #27ae60;
+  background-color: #e8f8f5;
+  box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+}
+
+.milestone.current .milestone-icon {
+  border-color: #27ae60;
+  background-color: #d5f4e6;
+  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.4);
+  transform: scale(1.2);
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+}
+
+.milestone.pending .milestone-icon {
+  border-color: #bdc3c7;
+  background-color: white;
+}
+
+.milestone-label {
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #555;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+  line-height: 1.2;
+}
+
+.milestone.completed .milestone-label {
+  color: #27ae60;
+  font-weight: 700;
+}
+
+.milestone.current .milestone-label {
+  color: #27ae60;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.milestone.pending .milestone-label {
+  color: #95a5a6;
+}
+
+.milestone-connector {
+  position: absolute;
+  top: 25px;
+  left: calc(50% + 25px);
+  width: calc(100% - 50px);
+  height: 2px;
+  border-top: 2px dashed #e0e0e0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.milestone:last-child .milestone-connector {
+  display: none;
+}
+
+.milestone-connector.completed {
+  border-top: 2px solid #27ae60;
+  border-style: solid;
+  box-shadow: 0 1px 3px rgba(39, 174, 96, 0.2);
+}
+
+@media (max-width: 1024px) {
+  .milestone-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .milestone.current .milestone-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
+  }
+
+  .milestone-label {
+    font-size: 10px;
+    max-width: 100px;
+  }
+
+  .milestone.current .milestone-label {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 768px) {
+  .status-bar-container {
+    padding: 15px 10px;
+  }
+
+  .status-bar {
+    padding: 15px 0 35px 0;
+  }
+
+  .status-progress-line {
+    top: 40px;
+    height: 2px;
+  }
+
+  .milestone-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .milestone.current .milestone-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+
+  .milestone-label {
+    font-size: 9px;
+    max-width: 80px;
+    margin-top: 8px;
+  }
+
+  .milestone.current .milestone-label {
+    font-size: 10px;
+  }
+
+  .milestone-connector {
+    top: 20px;
+  }
+}
+

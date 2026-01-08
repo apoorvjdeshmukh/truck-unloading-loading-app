@@ -1,0 +1,167 @@
+.mode-selector {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  background-color: white;
+  border-bottom: 2px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.mode-selector-wrapper {
+  position: relative;
+  display: flex;
+  gap: 0;
+  flex: 1;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  padding: 4px;
+  overflow: hidden;
+}
+
+.add-new-inline-button {
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  touch-action: manipulation;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+.mode-button:not(.active) .add-new-inline-button {
+  border-color: #3498db;
+  background-color: white;
+  color: #3498db;
+}
+
+.add-new-inline-button:hover {
+  background-color: rgba(255, 255, 255, 0.4) !important;
+  transform: scale(1.05);
+}
+
+.mode-button:not(.active) .add-new-inline-button:hover {
+  background-color: #3498db !important;
+  color: white !important;
+}
+
+.add-new-inline-button:active {
+  transform: scale(0.95);
+}
+
+.add-new-small-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 2px solid #3498db;
+  background-color: white;
+  color: #3498db;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  touch-action: manipulation;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.add-new-small-button:hover {
+  background-color: #3498db;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+.add-new-small-button:active {
+  transform: translateY(0);
+}
+
+.mode-button {
+  flex: 1;
+  padding: 15px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  background-color: transparent;
+  color: #666;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  touch-action: manipulation;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.mode-icon {
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.mode-button:hover .mode-icon {
+  transform: scale(1.1);
+}
+
+.mode-text {
+  font-size: 16px;
+}
+
+.mode-button.active {
+  color: white;
+}
+
+.mode-button:active {
+  transform: scale(0.98);
+}
+
+.mode-slider {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  height: calc(100% - 8px);
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  border-radius: 8px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.mode-slider.slide-right {
+  transform: translateX(calc(100% + 4px));
+}
+
+.mode-slider.slide-left {
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .mode-selector-wrapper {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .mode-button {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .mode-icon {
+    font-size: 20px;
+  }
+
+  .add-new-inline-button {
+    padding: 4px 8px;
+    font-size: 10px;
+    margin-left: 6px;
+  }
+}
+
